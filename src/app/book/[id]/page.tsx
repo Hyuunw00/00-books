@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import style from "./page.module.css";
 
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
 export function generateStaticParams() {
   return [{ id: "1" }, { id: "2" }, { id: "3" }];
