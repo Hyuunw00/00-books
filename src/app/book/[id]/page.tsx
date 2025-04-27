@@ -1,4 +1,11 @@
+import { notFound } from "next/navigation";
 import style from "./page.module.css";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ id: "1" }, { id: "2" }, { id: "3" }];
+}
 
 export default async function Page({
   params,
@@ -8,9 +15,15 @@ export default async function Page({
   const { id } = await params;
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`,
+    { cache: "force-cache" }
   );
-  if (!response.ok) return <div>오류 발생</div>;
+  if (!response.ok) {
+    if (response.status === 404) {
+      notFound();
+    }
+    return <div>오류 발생</div>;
+  }
   const bookDetails = await response.json();
 
   const { coverImgUrl, title, subTitle, author, publisher, description } =
