@@ -15,8 +15,7 @@ export default async function Page({
   const { id } = await params;
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`,
-    { cache: "force-cache" }
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`
   );
   if (!response.ok) {
     if (response.status === 404) {
