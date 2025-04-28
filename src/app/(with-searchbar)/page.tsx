@@ -3,6 +3,8 @@ import style from "./page.module.css";
 import { BookData } from "@/types";
 import { delay } from "@/util/delay";
 import { Suspense } from "react";
+import BookItemSkeleton from "@/components/skeleton/book-item-skeleton";
+import BookListSkeleton from "@/components/skeleton/book-list-skeleton";
 
 export const dynamic = "force-dynamic";
 
@@ -51,19 +53,19 @@ async function RandomBooks() {
 export default function Home() {
   return (
     <div className={style.container}>
-      <Suspense fallback={<div>책 불러오는중...</div>}>
-        <section>
-          <h3>지금 추천하는 도서</h3>
+      <section>
+        <h3>지금 추천하는 도서</h3>
+        <Suspense fallback={<BookListSkeleton count={3} />}>
           <RandomBooks />
-        </section>
-      </Suspense>
+        </Suspense>
+      </section>
 
-      <Suspense fallback={<div>책 불러오는중...</div>}>
-        <section>
-          <h3>모든 도서</h3>
+      <section>
+        <h3>등록된 모든 도서</h3>
+        <Suspense fallback={<BookListSkeleton count={10} />}>
           <AllBooks />
-        </section>
-      </Suspense>
+        </Suspense>
+      </section>
     </div>
   );
 }
