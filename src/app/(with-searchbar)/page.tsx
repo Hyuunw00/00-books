@@ -8,7 +8,23 @@ import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {};
+export const metadata: Metadata = {
+  title: "혀누 북스",
+  description: "혀누 북스는 책을 소개하는 웹 사이트입니다.",
+  keywords: ["책", "개발", "소개", "IT", "웹 개발"],
+  authors: {
+    name: "현우",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "혀누 북스",
+    description: "혀누 북스는 책을 소개하는 웹 사이트입니다.",
+    images: ["/thumbnail.png"],
+  },
+};
 
 async function AllBooks() {
   await delay(2000);
