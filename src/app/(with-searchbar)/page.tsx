@@ -1,12 +1,12 @@
 import BookItem from "@/components/book-item";
 import style from "./page.module.css";
 import { BookData } from "@/types";
-import { delay } from "@/util/delay";
+// import { delay } from "@/util/delay";
 import { Suspense } from "react";
 import BookListSkeleton from "@/components/skeleton/book-list-skeleton";
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "혀누 북스",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 async function AllBooks() {
-  await delay(2000);
+  // await delay(2000);
 
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
@@ -49,7 +49,7 @@ async function AllBooks() {
 }
 
 async function RandomBooks() {
-  await delay(1500);
+  // await delay(1500);
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
     { next: { revalidate: 3 } }
