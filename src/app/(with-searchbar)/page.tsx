@@ -4,8 +4,11 @@ import { BookData } from "@/types";
 import { delay } from "@/util/delay";
 import { Suspense } from "react";
 import BookListSkeleton from "@/components/skeleton/book-list-skeleton";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {};
 
 async function AllBooks() {
   await delay(2000);
