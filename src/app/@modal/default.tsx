@@ -1,3 +1,3 @@
-export default function Default() {
+export default function Default(props: any) {
   return null;
 }

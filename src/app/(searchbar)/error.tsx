@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { startTransition, useEffect } from "react";
+import { startTransition } from "react";
 
 export default function Error({
   error,
@@ -11,12 +11,10 @@ export default function Error({
   reset: () => void;
 }) {
   const router = useRouter();
-  useEffect(() => {
-    console.error(error.message);
-  }, [error]);
+
   return (
     <div>
-      <h3>오류 발생 🚨</h3>
+      <h3>오류 발생 🚨 : {error.message}</h3>
       <button
         onClick={() => {
           startTransition(() => {
