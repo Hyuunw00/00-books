@@ -1,6 +1,6 @@
 
 - 프로젝트 기간 : 2025.05.6 ~ 2025.05~19
-- 배포 URL : https://nooflix.vercel.app/ (서버 기본 off)
+- 배포 URL : https://noobooks.vercel.app/ (서버 기본 off)
 
 
 <hr/>
